@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Hikes details :</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <h3 text-center *ngIf="_hike">
+    {{_hike.formatedLength}}
+  </h3>
+  <h4 text-center *ngIf="_hike">
+    {{_hike._name}}
+  </h4>
+  <h4 text-center *ngIf="_hike">
+    {{_hike.incline}}
+  </h4>
+  <h4 text-center *ngIf="_hike">
+    {{_hike.difficulty}}
+  </h4>
+  <h4 text-center *ngIf="_hike">
+    {{_hike.duration}}
+  </h4>
+</ion-content>
