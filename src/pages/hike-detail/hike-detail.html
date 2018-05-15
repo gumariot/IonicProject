@@ -6,21 +6,40 @@
     <ion-title>Hikes details :</ion-title>
   </ion-navbar>
 </ion-header>
-
+//TODO CARD
 <ion-content>
-  <h3 text-center *ngIf="_hike">
-    {{_hike.formatedLength}}
-  </h3>
-  <h4 text-center *ngIf="_hike">
-    {{_hike._name}}
-  </h4>
-  <h4 text-center *ngIf="_hike">
-    {{_hike.incline}}
-  </h4>
-  <h4 text-center *ngIf="_hike">
-    {{_hike.difficulty}}
-  </h4>
-  <h4 text-center *ngIf="_hike">
-    {{_hike.duration}}
-  </h4>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <img src="assets/imgs/1.jpg">
+      </ion-col>
+      <ion-col>
+        <ion-row>
+          <ion-col>
+            <div class="item-note">{{_hike._name}}</div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div class="item-note">{{_hike.formatedLength}}</div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div class="item-note">{{_hike.incline}}</div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div class="item-note">{{_hike.difficulty}}</div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div class="item-note">{{_hike.duration}}</div>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
