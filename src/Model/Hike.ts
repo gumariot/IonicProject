@@ -1,3 +1,5 @@
+import { Step } from './Step';
+
 export class Hike{
   private _name: String;
   private _length: Number;
@@ -7,8 +9,21 @@ export class Hike{
   private _color: String;
   private _description: String;
   private _active: Boolean;
+  private _listStep: Array<Step>;
+  private _mark: number;
+  private _adr: String;
 
-  constructor(name: String,length: Number, duration: String, incline: Number, difficulty: String, color: String, description: String, active: Boolean) {
+  constructor(name: String,
+              length: Number,
+              duration: String,
+              incline: Number,
+              difficulty: String,
+              color: String,
+              description: String,
+              active: Boolean,
+              mark: number,
+              adr: String,
+              step: Array<Step> ) {
     this._name = name;
     this._length = length;
     this._duration = duration;
@@ -17,6 +32,9 @@ export class Hike{
     this._color = color;
     this._description = description;
     this._active = active;
+    this._listStep = step;
+    this._mark = mark;
+    this._adr = adr;
   }
 
   get length(){
@@ -57,5 +75,17 @@ export class Hike{
 
   set active(active: Boolean){
     this._active = active;
+  }
+
+  get listStep(){
+    return this._listStep;
+  }
+
+  get mark(){
+    return this._mark;
+  }
+
+  get adr(){
+    return this._adr;
   }
 }

@@ -10,6 +10,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { CurrentHiking } from '../Service/CurrentHiking';
+import { GeolocationService } from '../Service/GeolocationService';
+import { Geolocation } from '@ionic-native/geolocation';
 
 @Component({
   templateUrl: 'app.html'
@@ -26,15 +28,15 @@ export class MyApp {
     public menu: MenuController,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
-    public currentHiking: CurrentHiking
+    public currentHiking: CurrentHiking,
+    public geoService: GeolocationService
   ) {
     this.initializeApp();
 
     // set our app's pages
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'Hike', component: ListHiking },
-      { title: 'Hike in progress', component: HikeActivePage }
+      { title: 'Hike', component: ListHiking }
     ];
   }
 
@@ -45,6 +47,7 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.currentHiking = new CurrentHiking();
+      this.geoService = new GeolocationService(new Geolocation());
     });
   }
 
