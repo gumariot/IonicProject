@@ -12,8 +12,8 @@ export class ListHiking {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this._hikes = [];
-    this._hikes.push(new Hike("La balade du puy de dôme",15, "2h15", 400, "Easy", "green", "This is a description"));
-    this._hikes.push(new Hike("La balade du puy de dôme",15, "2h15", 400, "Easy", "green", "This is a description"));
+    this._hikes.push(new Hike("La balade du puy de dôme",15, "2h15", 400, "Easy", "green", "This is a description", false));
+    this._hikes.push(new Hike("La balade du puy de dôme",15, "2h15", 400, "Easy", "green", "This is a description", false));
   }
 
   get hikes(){

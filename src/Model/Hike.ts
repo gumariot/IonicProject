@@ -6,8 +6,9 @@ export class Hike{
   private _difficulty: String;
   private _color: String;
   private _description: String;
+  private _active: Boolean;
 
-  constructor(name: String,length: Number, duration: String, incline: Number, difficulty: String, color: String, description: String) {
+  constructor(name: String,length: Number, duration: String, incline: Number, difficulty: String, color: String, description: String, active: Boolean) {
     this._name = name;
     this._length = length;
     this._duration = duration;
@@ -15,10 +16,15 @@ export class Hike{
     this._difficulty = difficulty;
     this._color = color;
     this._description = description;
+    this._active = active;
   }
 
   get length(){
     return this._length;
+  }
+
+  get active(){
+    return this._active;
   }
 
   get name(){
@@ -47,5 +53,9 @@ export class Hike{
 
   get formatedLength(){
     return this._length + " km";
+  }
+
+  set active(active: Boolean){
+    this._active = active;
   }
 }

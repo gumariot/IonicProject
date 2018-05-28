@@ -3,12 +3,12 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Hikes details :</ion-title>
+    <ion-title>Hike in progress:</ion-title>
   </ion-navbar>
 </ion-header>
 //TODO CARD
 <ion-content>
-  <ion-grid>
+  <ion-grid *ngIf="_hike; else emptyHike">
     <ion-row>
       <ion-col>
         <img src="assets/imgs/1.jpg">
@@ -43,8 +43,8 @@
       <ion-col>
         <ion-row>
           <ion-col>
-            <button ion-button icon-right (click)="itemTapped($event, item)">
-              Activate
+            <button ion-button icon-right (click)="itemDeactivate($event)">
+              De-activate
               <ion-icon name="add-circle"></ion-icon>
             </button>
           </ion-col>
@@ -52,4 +52,7 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+  <ng-template #emptyHike>
+
+  </ng-template>
 </ion-content>
