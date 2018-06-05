@@ -6,9 +6,14 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
-    <ion-list>
-      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
+  <ion-content class="content">
+    <ion-list class="list-menu-sta">
+      <button ion-item *ngFor="let p of staticPages" (click)="openPage(p)">
+        {{p.title}}
+      </button>
+    </ion-list>
+    <ion-list class="list-menu-dyn" *ngIf="currentHiking.currentHike">
+      <button class="button" ion-item *ngFor="let p of dynamicPages" (click)="openPage(p)">
         {{p.title}}
       </button>
     </ion-list>

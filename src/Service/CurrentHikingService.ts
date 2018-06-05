@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Hike } from '../Model/Hike';
 
 @Injectable()
-export class CurrentHiking {
+export class CurrentHikingService {
 
   private _currentHike: Hike;
 

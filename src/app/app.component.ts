@@ -9,7 +9,7 @@ import { HikeActivePage } from '../pages/hiking-active/hiking-active';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { CurrentHiking } from '../Service/CurrentHiking';
+import { CurrentHikingService } from '../Service/CurrentHikingService';
 import { GeolocationService } from '../Service/GeolocationService';
 import { Geolocation } from '@ionic-native/geolocation';
 
@@ -21,23 +21,28 @@ export class MyApp {
 
   // make HomePage the root (or first) page
   rootPage = HomePage;
-  pages: Array<{title: string, component: any}>;
+  staticPages: Array<{title: string, component: any}>;
+  dynamicPages: Array<{title: string, component: any}>;
 
   constructor(
     public platform: Platform,
     public menu: MenuController,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
-    public currentHiking: CurrentHiking,
+    public currentHiking: CurrentHikingService,
     public geoService: GeolocationService
   ) {
     this.initializeApp();
 
     // set our app's pages
-    this.pages = [
+    this.staticPages = [
       { title: 'Home', component: HomePage },
       { title: 'Hike', component: ListHiking }
     ];
+
+    this.dynamicPages = [
+      { title: 'Hike In progress', component: HikeActivePage }
+    ]
   }
 
   initializeApp() {
@@ -46,13 +51,13 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      this.currentHiking = new CurrentHiking();
       this.geoService = new GeolocationService(new Geolocation());
     });
   }
 
   openPage(page) {
     // close the menu when clicking a link from the menu
+    console.log(this.currentHiking);
     this.menu.close();
     // navigate to the new page if it is not the current page
     this.nav.setRoot(page.component);

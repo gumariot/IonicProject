@@ -38,7 +38,7 @@ export class Hike{
   }
 
   get length(){
-    return this._length;
+    return '~' + this._length + 'm';
   }
 
   get active(){
@@ -50,7 +50,7 @@ export class Hike{
   }
 
   get duration(){
-    return this._duration;
+    return '~' + this._duration;
   }
 
   get incline(){

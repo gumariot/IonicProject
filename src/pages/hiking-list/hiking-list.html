@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar hideBackButton>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -7,7 +7,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<!--<ion-content>
   <ion-list>
     <button ion-item *ngFor="let item of hikes" (click)="itemTapped($event, item)">
       <ion-icon name="map" item-left></ion-icon>
@@ -30,6 +30,53 @@
         </ion-row>
       </ion-grid>
       <ion-icon item-right name="ios-arrow-forward" ></ion-icon>
+    </button>
+  </ion-list>
+</ion-content>-->
+
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let item of hikes" (click)="itemTapped($event, item)">
+      <ion-grid class="grid">
+        <ion-row>
+          <ion-col col-4>
+            <img src="assets/imgs/1.jpg">
+          </ion-col>
+          <ion-col col-8>
+            <ion-grid class="grid">
+              <ion-row>
+                <ion-col>
+                  {{item._name}}
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  {{item._adr}}
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  {{item._description}}
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-grid class="grid">
+                    <ion-row>
+                      <ion-col>
+                        {{item.duration}}
+                      </ion-col>
+                      <ion-col>
+                        {{item.length}}
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </button>
   </ion-list>
 </ion-content>
