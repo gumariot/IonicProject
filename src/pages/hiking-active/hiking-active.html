@@ -52,7 +52,7 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <agm-map [latitude]="lat" [longitude]="lng" >
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
     <agm-marker *ngFor="let item of _hike.listStep" [iconUrl]="item.flag" [latitude]="item.lat" [longitude]="item.lng"></agm-marker>
   </agm-map>
 </ion-content>

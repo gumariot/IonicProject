@@ -18,7 +18,7 @@ export class HikeActivePage {
   private _currentHikingService: CurrentHikingService;
 
   // google maps
-  private zoom: number = 8;
+  private zoom: number = 16;
   private lat: number;
   private lng: number;
 
