@@ -1,5 +1,6 @@
 import { Geolocation } from '@ionic-native/geolocation';
 import { Injectable } from '@angular/core';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class GeolocationService {
@@ -22,13 +23,15 @@ export class GeolocationService {
     })
   }
 
-  watchPosition(){
-    return new Promise((resolve,error)=>{
-      let watch = this.geolocation.watchPosition();
-      watch.subscribe((data) => {
-        resolve(data);
-      });
-    })
+  getPositionUpdated(): Observable<Position> {
+    return Observable.create(
+      (observer) => {
+      navigator.geolocation.watchPosition((pos: Position) => {
+        observer.next(pos);
+      }),
+      {
+        enableHighAccuracy: true
+      };
+    });
   }
-
 }

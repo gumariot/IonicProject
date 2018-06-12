@@ -7,33 +7,6 @@
   </ion-navbar>
 </ion-header>
 
-<!--<ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of hikes" (click)="itemTapped($event, item)">
-      <ion-icon name="map" item-left></ion-icon>
-      <ion-grid class="grid">
-        <ion-row>
-          <ion-col>
-            <div class="item-note">{{item._name}}</div>
-          </ion-col>
-          <ion-col>
-            <div class="item-note">{{item.formatedLength}}</div>
-          </ion-col>
-          <ion-col>
-            <div class="item-note">{{item._duration}}</div>
-          </ion-col>
-          <ion-col>
-            <ion-chip color="{{item._color}}">
-              {{item._difficulty}}
-            </ion-chip>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-      <ion-icon item-right name="ios-arrow-forward" ></ion-icon>
-    </button>
-  </ion-list>
-</ion-content>-->
-
 <ion-content>
   <ion-list>
     <button ion-item *ngFor="let item of hikes" (click)="itemTapped($event, item)">
@@ -79,4 +52,6 @@
       </ion-grid>
     </button>
   </ion-list>
+
+  <chronometre></chronometre>
 </ion-content>

@@ -4,13 +4,16 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { HomePage } from '../pages/home/home';
+import { Timer } from '../pages/timer/timer';
 import { ListHiking } from '../pages/hiking-list/hiking-list';
 import { HikeDetailPage } from '../pages/hike-detail/hike-detail';
 import { HikeActivePage } from '../pages/hiking-active/hiking-active';
 
 import { CurrentHikingService } from '../Service/CurrentHikingService';
 import { GeolocationService } from '../Service/GeolocationService';
+import { TimerService } from '../Service/TimerService';
 import { Geolocation } from '@ionic-native/geolocation';
+import { AgmDirectionModule } from 'agm-direction';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -23,11 +26,13 @@ import { AgmCoreModule } from '@agm/core';
     HomePage,
     ListHiking,
     HikeDetailPage,
-    HikeActivePage
+    HikeActivePage,
+    Timer
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    AgmDirectionModule,
     AgmCoreModule.forRoot({
       // please get your own API key here:
       // https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en
@@ -40,13 +45,15 @@ import { AgmCoreModule } from '@agm/core';
     HomePage,
     ListHiking,
     HikeDetailPage,
-    HikeActivePage
+    HikeActivePage,
+    Timer
   ],
   providers: [
     StatusBar,
     SplashScreen,
     GeolocationService,
     CurrentHikingService,
+    TimerService,
     Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

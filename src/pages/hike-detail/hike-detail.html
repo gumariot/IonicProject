@@ -52,4 +52,16 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+
+  <ion-grid class="cstm-grid" *ngFor="let item of _hike.listStep">
+    <ion-row>
+      <ion-col col-12>{{item.name}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>{{item.desc}}</ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
 </ion-content>

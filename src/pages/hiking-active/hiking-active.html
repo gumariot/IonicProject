@@ -53,6 +53,12 @@
     </ion-row>
   </ion-grid>
   <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
-    <agm-marker *ngFor="let item of _hike.listStep" [iconUrl]="item.flag" [latitude]="item.lat" [longitude]="item.lng"></agm-marker>
+    <agm-marker [latitude]="lat" [longitude]="lng">
+      <agm-info-window [latitude]="lat" [longitude]="lng">Current Position</agm-info-window>
+    </agm-marker>
+    <agm-marker *ngFor="let item of _hike.listStep" [iconUrl]="item.flag" [latitude]="item.lat" [longitude]="item.lng">
+      <agm-info-window [latitude]="item.lat" [longitude]="item.lng">{{item.name}} : {{item.desc}} </agm-info-window>
+    </agm-marker>
+    <agm-direction *ngFor="let item of dir" [renderOptions]="renderOptions" [origin]="item.origin" [destination]="item.destination"></agm-direction>
   </agm-map>
 </ion-content>

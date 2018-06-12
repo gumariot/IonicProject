@@ -21,20 +21,36 @@ export class HikeActivePage {
   private zoom: number = 16;
   private lat: number;
   private lng: number;
+  private dir = undefined;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public currentHiking: CurrentHikingService, public alertCtrl: AlertController,  public geoService: GeolocationService) {
-    let res = geoService.getCurrentPosition();
-    res.then((data)=>{
-      this.lat = data[0];
-      this.lng = data[1];
-    })
+    geoService.getPositionUpdated().subscribe(
+        (pos: Position) => {
+            this.lat = pos.coords.latitude;
+            this.lng = pos.coords.longitude;
+    });
     this._hike = currentHiking.currentHike;
     this._currentHikingService = currentHiking;
+    this.prepareStep();
   }
 
   itemDeactivate(event) {
     this._hike.active = false;
     this._currentHikingService.resetHike();
     this.navCtrl.push(ListHiking, {});
+  }
+
+  private prepareStep(){
+    let directionArray = [];
+    for(let i=0; i<this._hike.listStep.length; i++){
+      if(i+1 < this._hike.listStep.length){
+        let currentInfo = {
+          origin: { lat: this._hike.listStep[i].lat, lng: this._hike.listStep[i].lng, mode: 'TRANSIT' },
+          destination: { lat: this._hike.listStep[i+1].lat, lng: this._hike.listStep[i+1].lng, mode: 'TRANSIT' },
+        };
+        directionArray.push(currentInfo);
+      }
+    }
+    this.dir = directionArray;
   }
 }
