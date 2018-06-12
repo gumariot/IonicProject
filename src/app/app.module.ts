@@ -3,6 +3,8 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
+import { HttpModule } from '@angular/http';
+
 import { HomePage } from '../pages/home/home';
 import { Timer } from '../pages/timer/timer';
 import { ListHiking } from '../pages/hiking-list/hiking-list';
@@ -12,6 +14,7 @@ import { HikeActivePage } from '../pages/hiking-active/hiking-active';
 import { CurrentHikingService } from '../Service/CurrentHikingService';
 import { GeolocationService } from '../Service/GeolocationService';
 import { TimerService } from '../Service/TimerService';
+import { OpenDataService } from '../Service/OpenDataService';
 import { Geolocation } from '@ionic-native/geolocation';
 import { AgmDirectionModule } from 'agm-direction';
 
@@ -31,6 +34,7 @@ import { AgmCoreModule } from '@agm/core';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
     AgmDirectionModule,
     AgmCoreModule.forRoot({
@@ -54,6 +58,7 @@ import { AgmCoreModule } from '@agm/core';
     GeolocationService,
     CurrentHikingService,
     TimerService,
+    OpenDataService,
     Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

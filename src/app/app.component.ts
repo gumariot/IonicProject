@@ -11,6 +11,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { CurrentHikingService } from '../Service/CurrentHikingService';
 import { GeolocationService } from '../Service/GeolocationService';
+import { OpenDataService } from '../Service/OpenDataService';
 import { Geolocation } from '@ionic-native/geolocation';
 
 @Component({
@@ -30,7 +31,8 @@ export class MyApp {
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
     public currentHiking: CurrentHikingService,
-    public geoService: GeolocationService
+    public geoService: GeolocationService,
+    public openDataService: OpenDataService
   ) {
     this.initializeApp();
 

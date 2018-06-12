@@ -44,6 +44,7 @@
     "zone.js": "0.8.18"
   },
   "devDependencies": {
+    "@angular/http": "^5.0.0",
     "@ionic/app-scripts": "3.1.0",
     "agm-direction": "^0.5.4",
     "appium": "^1.8.1",

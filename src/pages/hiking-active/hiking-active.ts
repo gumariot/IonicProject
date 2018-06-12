@@ -24,10 +24,9 @@ export class HikeActivePage {
   private dir = undefined;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public currentHiking: CurrentHikingService, public alertCtrl: AlertController,  public geoService: GeolocationService) {
-    geoService.getPositionUpdated().subscribe(
-        (pos: Position) => {
-            this.lat = pos.coords.latitude;
-            this.lng = pos.coords.longitude;
+    geoService.getPositionUpdated().subscribe((pos: Position) => {
+      this.lat = pos.coords.latitude;
+      this.lng = pos.coords.longitude;
     });
     this._hike = currentHiking.currentHike;
     this._currentHikingService = currentHiking;
