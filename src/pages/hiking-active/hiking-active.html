@@ -52,13 +52,22 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" mapTypeId="terrain">
     <agm-marker [latitude]="lat" [longitude]="lng">
       <agm-info-window [latitude]="lat" [longitude]="lng">Current Position</agm-info-window>
     </agm-marker>
-    <agm-marker *ngFor="let item of _hike.listStep" [iconUrl]="item.flag" [latitude]="item.lat" [longitude]="item.lng">
-      <agm-info-window [latitude]="item.lat" [longitude]="item.lng">{{item.name}} : {{item.desc}} </agm-info-window>
+     <agm-marker [iconUrl]="_hike.listStep[0].flag" [latitude]="_hike.listStep[0].lat" [longitude]="_hike.listStep[0].lng">
+      <agm-info-window [latitude]="_hike.listStep[0].lat" [longitude]="_hike.listStep[0].lng">{{_hike.listStep[0].name}} : {{_hike.listStep[0].desc}} </agm-info-window>
     </agm-marker>
-    <agm-direction *ngFor="let item of dir" [renderOptions]="renderOptions" [origin]="item.origin" [destination]="item.destination"></agm-direction>
+    <agm-marker [iconUrl]="_hike.listStep[lastStep].flag" [latitude]="_hike.listStep[lastStep].lat" [longitude]="_hike.listStep[lastStep].lng">
+     <agm-info-window [latitude]="_hike.listStep[lastStep].lat" [longitude]="_hike.listStep[lastStep].lng">{{_hike.listStep[lastStep].name}} : {{_hike.listStep[lastStep].desc}} </agm-info-window>
+   </agm-marker>
+    <agm-polyline [strokeColor]="'#2196F3'">
+      <ng-container *ngFor="let item of _hike.listStep;let i = index;">
+        <agm-polyline-point [latitude]="item.lat" [longitude]="item.lng">
+        </agm-polyline-point>
+      </ng-container>
+  </agm-polyline>
+
   </agm-map>
 </ion-content>

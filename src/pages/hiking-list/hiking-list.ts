@@ -13,16 +13,7 @@ export class ListHiking {
   private _hikes: Array<Hike>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public openDataService: OpenDataService ) {
-    openDataService.getAll().then((succ)=>{
-      console.log(succ)
-    });
-    this._hikes = [];
-    this._hikes.push(new Hike("La balade du puy de dôme",15, "2h15", 400, "Easy", "green", "This is a description", false, 5, "46 rue de laloy, Clermont-Fd", [
-      new Step(46.2219, 5.48327, "1", 'Tourner à droite',"assets/imgs/start.png"), new Step(46.222,5.48316 , "2", 'Turn left',"assets/imgs/step.png"), new Step(46.2205,5.51173 , "3", 'Stop you reached the end', "assets/imgs/end.png")
-    ]));
-    this._hikes.push(new Hike("La balade de laloy",15, "2h15", 400, "Easy", "green", "This is a description", false, 5, "46 rue de laloy, Clermont-Fd", [
-      new Step(46.1513, 5.60399, "1", 'Tourner à droite',"assets/imgs/start.png"), new Step(46.1601,5.57026, "2", 'Turn right',"assets/imgs/step.png"), new Step(46.1413,5.55321, "3", 'Turn right', "assets/imgs/end.png")
-    ]));
+    this._hikes = openDataService.importedHikes;
   }
 
   get hikes(){
