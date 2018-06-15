@@ -1,13 +1,8 @@
 <div class="container">
     <div class="text-center">
-        <div>
-            <span class="label label-primary">{{_timer.heures}}</span>:
-            <span class="label label-primary">{{_timer.minutes}}</span>:
-            <span class="label label-primary">{{_timer.secondes}}</span>
+        <div class="timer">
+          <ion-icon name="compass"></ion-icon>
+            <span class="label label-primary">{{_timer.heures}}:{{_timer.minutes}}:{{_timer.secondes}}</span>
         </div>
-        <p>
-            <button class="btn btn-danger btn-lg" *ngIf="_timer.stop" (click)="stop()">Arrêter</button>
-            <button class="btn btn-primary btn-lg" *ngIf="_timer.play" (click)="play()">{{_btnPlay}}</button>
-        </p>
     </div>
 </div>

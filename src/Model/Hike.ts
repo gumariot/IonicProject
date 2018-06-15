@@ -10,8 +10,10 @@ export class Hike{
   private _description: String;
   private _active: Boolean;
   private _listStep: Array<Step>;
-  private _mark: number;
+  private _mark: Array<Number>;
   private _adr: String;
+  private _path: String;
+  private _stepCheckpoint: Array<Step>;
 
   constructor(name: String,
               length: Number,
@@ -23,6 +25,7 @@ export class Hike{
               active: Boolean,
               mark: number,
               adr: String,
+              path: String,
               step: Array<Step> ) {
     this._name = name;
     this._length = length;
@@ -33,12 +36,24 @@ export class Hike{
     this._description = description;
     this._active = active;
     this._listStep = step;
-    this._mark = mark;
+    this._mark = new Array(mark);
     this._adr = adr;
+    this._path = path;
+    this._stepCheckpoint = this.prepareStepCheckPoint(step);
+  }
+
+  prepareStepCheckPoint(step: Array<Step>){
+    let stepCk: Array<Step> = [];
+    step.forEach((elt) => {
+      if(elt["_name"] != ""){
+        stepCk.push(elt);
+      }
+    });
+    return stepCk;
   }
 
   get length(){
-    return '~' + this._length + 'm';
+    return '~' + this._length + 'Km';
   }
 
   get active(){
@@ -54,7 +69,7 @@ export class Hike{
   }
 
   get incline(){
-    return this._incline;
+    return "~" + this._incline + "m";
   }
 
   get color(){
@@ -87,5 +102,13 @@ export class Hike{
 
   get adr(){
     return this._adr;
+  }
+
+  get path(){
+    return this._path;
+  }
+
+  get stepCheckpoint(){
+    return this._stepCheckpoint;
   }
 }

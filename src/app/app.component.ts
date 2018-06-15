@@ -39,11 +39,11 @@ export class MyApp {
     // set our app's pages
     this.staticPages = [
       { title: 'Home', component: HomePage },
-      { title: 'Hike', component: ListHiking }
+      { title: 'Trails List', component: ListHiking }
     ];
 
     this.dynamicPages = [
-      { title: 'Hike In progress', component: HikeActivePage }
+      { title: 'Trail In progress', component: HikeActivePage }
     ]
   }
 

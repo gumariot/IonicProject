@@ -25,7 +25,7 @@ export class OpenDataService {
           let hikeDetails = jsonData["features"][i]["properties"];
           let icon = "assets/imgs/start.png";
           this.initializeStep(hikePath).then((succStep : Array<Step>) => {
-            this._importedHikes.push(new Hike(hikeDetails["name"],15, hikeDetails["duration"], hikeDetails["incline"], hikeDetails["difficulty"], hikeDetails["color"], hikeDetails["description"], false, hikeDetails["mark"], hikeDetails["adr"], succStep));
+            this._importedHikes.push(new Hike(hikeDetails["name"],hikeDetails["length"], hikeDetails["duration"], hikeDetails["incline"], hikeDetails["difficulty"], hikeDetails["color"], hikeDetails["description"], false, hikeDetails["mark"], hikeDetails["adr"], hikeDetails["path"],succStep));
           })
         }
         resolve(this._importedHikes);
@@ -44,7 +44,11 @@ export class OpenDataService {
         }else if(j > 0){
           icon = "";
         }
-        _importedSteps.push(new Step(hikePath[j][1], hikePath[j][0], j.toString(), '',icon));
+        if(hikePath[j][2] === undefined){
+          hikePath[j][3] = '';
+          hikePath[j][2] = '';
+        }
+        _importedSteps.push(new Step(hikePath[j][1], hikePath[j][0], hikePath[j][2], hikePath[j][3],icon));
       }
       resolve(_importedSteps);
     })

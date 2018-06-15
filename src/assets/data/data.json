@@ -11,7 +11,9 @@
           [
             [
               6.34652098,
-              49.07831116
+              49.07831116,
+              "1 - Blois",
+              "Continuer tout droit pendant 2km"
             ],
             [
               6.34607915,
@@ -87,7 +89,9 @@
             ],
             [
               6.34112498,
-              49.07515579
+              49.07515579,
+              "2 - Blois",
+              "Continuer tout droit pendant 20km"
             ],
             [
               6.34104937,
@@ -2897,9 +2901,11 @@
       	"incline": "200",
       	"difficulty": "Easy",
       	"color": "green",
-      	"description": "This hike is one of the best hike in the city",
-      	"mark":5,
-      	"adr": "Lorient"
+      	"description": "This hike is one of the best hike in the city. Lorient is the best city in the country.",
+      	"mark":2,
+      	"adr": "Lorient",
+        "length": 5,
+        "path": "assets/imgs/1.png"
       }
     },
     {
@@ -7657,9 +7663,11 @@
       	"incline": "100",
       	"difficulty": "Easy",
       	"color": "green",
-      	"description": "This hike is one of the best hike in the forest",
+      	"description": "This hike is one of the best hike in the forest. The forest is green and the sky is blue.",
       	"mark":4,
-      	"adr": "Clermont"
+      	"adr": "Clermont",
+        "length": 21,
+        "path": "assets/imgs/2.png"
       }
     },
     {
@@ -8177,9 +8185,11 @@
       	"incline": "900",
       	"difficulty": "Hard",
       	"color": "red",
-      	"description": "This hike is very hard but the landscape is beautiful",
+      	"description": "This hike is very hard but the landscape is beautiful. Discover some mountain, village, river and more !",
       	"mark":5,
-      	"adr": "Chamonix"
+      	"adr": "Chamonix",
+        "length": 3.5,
+        "path": "assets/imgs/5.png"
       }
     },
     {
@@ -8521,9 +8531,11 @@
       	"incline": "2000",
       	"difficulty": "Hard",
       	"color": "black",
-      	"description": "The famous GR25 in France",
-      	"mark":5,
-      	"adr": "Les Arcs"
+      	"description": "The famous GR25 in France. The place to be. But this trail is very hard.",
+      	"mark":3,
+      	"adr": "Les Arcs",
+        "length": 13,
+        "path": "assets/imgs/3.png"
       }
     },
     {
@@ -9413,9 +9425,11 @@
       	"incline": "300",
       	"difficulty": "Easy",
       	"color": "green",
-      	"description": "Please discover some village",
+      	"description": "This trails is unique. You can discover many typical village next to Rouen",
       	"mark":5,
-      	"adr": "Rouen"
+      	"adr": "Rouen",
+        "length": 13,
+        "path": "assets/imgs/4.png"
       }
     }
   ],

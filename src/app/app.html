@@ -1,12 +1,12 @@
-<ion-menu [content]="content">
+<ion-menu [content]="content" color="green">
 
   <ion-header>
     <ion-toolbar>
-      <ion-title>Pages</ion-title>
+      <ion-title>Navigation</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-content class="content">
+  <ion-content color="green" class="content">
     <ion-list class="list-menu-sta">
       <button ion-item *ngFor="let p of staticPages" (click)="openPage(p)">
         {{p.title}}
