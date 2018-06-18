@@ -16,7 +16,6 @@ export class HomePage {
   }
 
   get hikes(){
-    console.log(this._hikes);
     return this._hikes;
   }
 }

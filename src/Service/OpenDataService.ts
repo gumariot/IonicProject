@@ -19,11 +19,9 @@ export class OpenDataService {
     return new Promise((resolve)=>{
       this.http.get("/assets/data/data.json").subscribe((succ)=>{
         let jsonData  = succ.json();
-        let len;
         for(let i=0; i < jsonData["features"].length; i++){
           let hikePath = jsonData["features"][i]["geometry"]["coordinates"];
           let hikeDetails = jsonData["features"][i]["properties"];
-          let icon = "assets/imgs/start.png";
           this.initializeStep(hikePath).then((succStep : Array<Step>) => {
             this._importedHikes.push(new Hike(hikeDetails["name"],hikeDetails["length"], hikeDetails["duration"], hikeDetails["incline"], hikeDetails["difficulty"], hikeDetails["color"], hikeDetails["description"], false, hikeDetails["mark"], hikeDetails["adr"], hikeDetails["path"], false, succStep));
           })

@@ -7,7 +7,7 @@
   </ion-navbar>
 </ion-header>
 <ion-content *ngIf="_hike">
-  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" mapTypeId="terrain">
+  <agm-map [latitude]="_hike.listStep[0].lat" [longitude]="_hike.listStep[0].lng" [zoom]="zoom" mapTypeId="terrain">
     <agm-marker [latitude]="lat" [longitude]="lng">
       <agm-info-window [latitude]="lat" [longitude]="lng">Current Position</agm-info-window>
     </agm-marker>

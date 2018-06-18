@@ -51,6 +51,7 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
+      console.log("JE SUIS UP")
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.geoService = new GeolocationService(new Geolocation());
@@ -59,7 +60,6 @@ export class MyApp {
 
   openPage(page) {
     // close the menu when clicking a link from the menu
-    console.log(this.currentHiking);
     this.menu.close();
     // navigate to the new page if it is not the current page
     this.nav.setRoot(page.component);

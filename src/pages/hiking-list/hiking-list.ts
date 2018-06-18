@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Hike } from '../../Model/Hike';
-import { Step } from '../../Model/Step';
 import { HikeDetailPage } from '../hike-detail/hike-detail';
 import { OpenDataService } from '../../Service/OpenDataService';
 import { TimerService } from '../../Service/TimerService';

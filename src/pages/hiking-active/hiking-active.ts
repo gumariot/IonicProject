@@ -58,4 +58,5 @@ export class HikeActivePage {
     }
     this.dir = directionArray;
   }
+
 }
