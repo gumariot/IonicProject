@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { TimerService } from '../../Service/TimerService';
 
+/*
+* Timer de l'application
+*/
 @Component({
     selector: 'chronometre',
     templateUrl: 'timer.html'

@@ -1,5 +1,24 @@
 import { Step } from './Step';
 
+/*
+*
+* Model de la randonnées
+* _name : Nom de la randonnées
+* _length : taille de la randonnées
+* _duration : Durée de la randonnées
+* _incline : Dénivelé de la randonnées
+* _difficulty : Difficulté de la randonnées
+* _color : Couleur de la randonnées
+* _description : Description de la randonnées
+* _active : La randonnées est elle active
+* _listStep : Liste des étapes de la randonnées
+* _mark : Note de la randonnées
+* _adr : Adresse de la randonnées
+* _path : Chemin de l'image de la randonnées
+* _favorite : La randonnées est elle favorite
+* _stepCheckpoint : Liste des checkpoint de la randonnées
+*
+*/
 export class Hike{
   private _name: String;
   private _length: Number;
@@ -45,6 +64,9 @@ export class Hike{
     this._favorite = fav;
   }
 
+  /*
+  * Créer la liste des checkpoints de la randonnées
+  */
   prepareStepCheckPoint(step: Array<Step>){
     let stepCk: Array<Step> = [];
     step.forEach((elt) => {

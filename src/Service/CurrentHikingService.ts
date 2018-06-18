@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Hike } from '../Model/Hike';
 
+/*
+* Service représentant la randonnées active
+*/
 @Injectable()
 export class CurrentHikingService {
 

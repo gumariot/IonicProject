@@ -9,7 +9,10 @@ import { TimerService } from '../../Service/TimerService';
 
 import { ListHiking } from '../../pages/hiking-list/hiking-list';
 
-
+/*
+* Détail de la randonnées active lorsque l'on décide de la commencer
+* On y affiche aussi la map de la randonnées
+*/
 @Component({
   selector: 'hiking-active',
   templateUrl: 'hiking-active.html'

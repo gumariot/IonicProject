@@ -2,6 +2,9 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 
+/*
+* Service représentant la géolocalisation
+*/
 @Injectable()
 export class GeolocationService {
 

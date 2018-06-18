@@ -1,3 +1,13 @@
+/*
+*
+* Model de l'étape
+* _lng : longitude de l'étape'
+* _lat : latitude de l'étape
+* _name : nom de l'étape
+* _desc : description de l'étape
+* _flag : icone de l'étape
+*
+*/
 export class Step{
   private _lng: number;
   private _lat: number;

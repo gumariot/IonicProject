@@ -3,6 +3,9 @@ import { Http,HttpModule  } from '@angular/http';
 import { Hike } from '../Model/Hike';
 import { Step } from '../Model/Step';
 
+/*
+* Service qui effectue une requête http pour récupérer un jeu de donnée et la parse pour être compatible avec notre application
+*/
 @Injectable()
 export class OpenDataService {
 

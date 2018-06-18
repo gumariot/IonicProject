@@ -5,6 +5,9 @@ import { HikeDetailPage } from '../hike-detail/hike-detail';
 import { OpenDataService } from '../../Service/OpenDataService';
 import { TimerService } from '../../Service/TimerService';
 
+/*
+* Affiche la liste des randonnées renvoyé par le Service OpenDataService
+*/
 @Component({
   selector: 'hiking-list',
   templateUrl: 'hiking-list.html'

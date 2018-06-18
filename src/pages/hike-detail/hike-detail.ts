@@ -6,7 +6,9 @@ import { NavController, NavParams, MenuController } from 'ionic-angular';
 import { CurrentHikingService } from '../../Service/CurrentHikingService';
 import { TimerService } from '../../Service/TimerService';
 
-
+/*
+* Détail visible lorsque clique sur une randonnées dans la liste
+*/
 @Component({
   selector: 'hike-detail',
   templateUrl: 'hike-detail.html'

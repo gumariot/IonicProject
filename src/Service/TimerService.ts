@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 
+/*
+* Service représentant le timer
+*/
 @Injectable()
 export class TimerService {
   private _minutes: number = 0;

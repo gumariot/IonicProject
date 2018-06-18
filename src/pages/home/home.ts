@@ -4,6 +4,9 @@ import { Hike } from '../../Model/Hike';
 
 import { OpenDataService } from '../../Service/OpenDataService';
 
+/*
+* Affiche les randonnées favorites
+*/
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
