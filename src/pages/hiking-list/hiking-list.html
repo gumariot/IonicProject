@@ -28,16 +28,17 @@
             </button>
         </ion-col>
         <ion-col>
-          <button ion-button icon-start clear small class="btn_trail">
-            <ion-icon class="star" name="star"></ion-icon>
+          <button (click)="itemTappedFav($event, item)" ion-button icon-start clear small class="btn_trail">
+            <ion-icon *ngIf="item.favorite" class="star" name="star"></ion-icon>
+            <ion-icon *ngIf="!item.favorite" class="star" name="star-outline"></ion-icon>
             <div class="star">Favorite</div>
           </button>
         </ion-col>
       </ion-row>
     </ion-card-content>
-</ion-card>
+  </ion-card>
 </ion-content>
-<ion-footer>
+<ion-footer *ngIf="_timerService.secondes">
   <ion-toolbar>
   <chronometre></chronometre>
   </ion-toolbar>

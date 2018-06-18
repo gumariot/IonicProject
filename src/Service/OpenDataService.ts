@@ -25,7 +25,7 @@ export class OpenDataService {
           let hikeDetails = jsonData["features"][i]["properties"];
           let icon = "assets/imgs/start.png";
           this.initializeStep(hikePath).then((succStep : Array<Step>) => {
-            this._importedHikes.push(new Hike(hikeDetails["name"],hikeDetails["length"], hikeDetails["duration"], hikeDetails["incline"], hikeDetails["difficulty"], hikeDetails["color"], hikeDetails["description"], false, hikeDetails["mark"], hikeDetails["adr"], hikeDetails["path"],succStep));
+            this._importedHikes.push(new Hike(hikeDetails["name"],hikeDetails["length"], hikeDetails["duration"], hikeDetails["incline"], hikeDetails["difficulty"], hikeDetails["color"], hikeDetails["description"], false, hikeDetails["mark"], hikeDetails["adr"], hikeDetails["path"], false, succStep));
           })
         }
         resolve(this._importedHikes);

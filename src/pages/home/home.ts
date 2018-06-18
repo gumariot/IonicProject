@@ -1,16 +1,22 @@
 import { Component } from '@angular/core';
 
+import { Hike } from '../../Model/Hike';
+
+import { OpenDataService } from '../../Service/OpenDataService';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-  private _firstName: String = "Guillaume";
-  private _lastName: String = "Mariot";
+  private _hikes: Array<Hike>;
 
-  constructor() {}
+  constructor(public openDataService: OpenDataService) {
+    this._hikes = openDataService.importedHikes;
+  }
 
-  get fullName() {
-    return this._firstName+" "+this._lastName;
+  get hikes(){
+    console.log(this._hikes);
+    return this._hikes;
   }
 }

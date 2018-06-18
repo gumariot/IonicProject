@@ -30,11 +30,15 @@
   width: 75%;
 }
 
-.step-grid{
-  width: 100%;
-  border: solid 1px black;
-  border-bottom: none;
+.step_detail{
+  margin-top: 1em;
+  margin-bottom: 1em;
+  .step-grid{
+    width: 90%;
+    border: solid 1px black;
+  }
 }
+
 
 .description{
   text-align: justify;

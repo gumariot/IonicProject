@@ -5,6 +5,7 @@ import { AlertController } from 'ionic-angular';
 
 import { CurrentHikingService } from '../../Service/CurrentHikingService';
 import { GeolocationService } from '../../Service/GeolocationService';
+import { TimerService } from '../../Service/TimerService';
 
 import { ListHiking } from '../../pages/hiking-list/hiking-list';
 
@@ -17,6 +18,7 @@ export class HikeActivePage {
   private _hike: Hike;
   private _currentHikingService: CurrentHikingService;
   private lastStep: Number;
+  private _timerService: TimerService;
 
   // google maps
   private zoom: number = 16;
@@ -25,15 +27,15 @@ export class HikeActivePage {
   private dir = undefined;
   private renderOptions = { suppressMarkers: true }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public currentHiking: CurrentHikingService, public alertCtrl: AlertController,  public geoService: GeolocationService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public currentHiking: CurrentHikingService, public alertCtrl: AlertController,  public geoService: GeolocationService, public timerService: TimerService) {
     geoService.getPositionUpdated().subscribe((pos: Position) => {
       this.lat = pos.coords.latitude;
       this.lng = pos.coords.longitude;
     });
     this._hike = currentHiking.currentHike;
     this.lastStep = this._hike.listStep.length-1;
-    console.log(this.lastStep)
     this._currentHikingService = currentHiking;
+    this._timerService = timerService;
     this.prepareStep();
   }
 
@@ -57,5 +59,3 @@ export class HikeActivePage {
     this.dir = directionArray;
   }
 }
-
-//A GRATTER: https://stackoverflow.com/questions/46763420/how-to-alternate-color-of-polyline-with-angular-2-using-agm-map-agm-polyline

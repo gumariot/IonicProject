@@ -44,27 +44,36 @@
   </ion-grid>
 
   <div class="start">
-    <button ion-button icon-right (click)="itemTapped($event, item)" small class="btn">
-      Start
+    <button ion-button icon-right (click)="itemTapped($event, item)" small class="btn" *ngIf="_timerService.play">
+      {{_timerService.btnPlay}}
     </button>
+    <button ion-button icon-right small class="btn" *ngIf="_timerService.stop" (click)="_timerService.itemTappedStop($event, item)">Pause</button>
   </div>
 
   <div class="title_step">
     <span>Steps</span>
   </div>
 
-  <ion-grid class="step-grid" *ngFor="let item of _hike.stepCheckpoint">
-    <ion-row>
-      <ion-col col-10>{{item.name}}</ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-10>{{item.desc}}</ion-col>
-    </ion-row>
-  </ion-grid>
+  <div class="step_detail">
+    <ion-grid class="step-grid" *ngFor="let item of _hike.stepCheckpoint">
+      <ion-row>
+        <ion-col col-10>{{item.name}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-10>{{item.desc}}</ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 
   <div class="start">
-    <button ion-button icon-right (click)="itemTapped($event, item)" small class="btn">
-      Start
+    <button ion-button icon-right (click)="itemTapped($event, item)" small class="btn" *ngIf="_timerService.play">
+      {{_timerService.btnPlay}}
     </button>
+    <button ion-button icon-right small class="btn" *ngIf="_timerService.stop" (click)="_timerService.itemTappedStop($event, item)">Pause</button>
   </div>
 </ion-content>
+<ion-footer *ngIf="_timerService.secondes">
+  <ion-toolbar>
+  <chronometre></chronometre>
+  </ion-toolbar>
+</ion-footer>

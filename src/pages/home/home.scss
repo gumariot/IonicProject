@@ -1,0 +1,35 @@
+.main_title{
+  text-align: center;
+}
+
+.main_description{
+  padding: 0.7em;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.card-background-page {
+  .home {
+    position: relative;
+    text-align: center;
+  }
+
+  .card-title-main {
+    position: absolute;
+    top: 36%;
+    font-size: 2.0em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .desc_home{
+    text-align: justify;
+    text-justify: inter-word;
+    padding: 0.7em;
+    h1{
+      margin-top: 0;
+      text-align: center;
+    }
+  }
+}

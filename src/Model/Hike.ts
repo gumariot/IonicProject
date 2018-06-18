@@ -13,6 +13,7 @@ export class Hike{
   private _mark: Array<Number>;
   private _adr: String;
   private _path: String;
+  private _favorite: Boolean;
   private _stepCheckpoint: Array<Step>;
 
   constructor(name: String,
@@ -26,6 +27,7 @@ export class Hike{
               mark: number,
               adr: String,
               path: String,
+              fav: Boolean,
               step: Array<Step> ) {
     this._name = name;
     this._length = length;
@@ -40,6 +42,7 @@ export class Hike{
     this._adr = adr;
     this._path = path;
     this._stepCheckpoint = this.prepareStepCheckPoint(step);
+    this._favorite = fav;
   }
 
   prepareStepCheckPoint(step: Array<Step>){
@@ -102,6 +105,14 @@ export class Hike{
 
   get adr(){
     return this._adr;
+  }
+
+  get favorite(){
+    return this._favorite;
+  }
+
+  set favorite(fav: Boolean){
+    this._favorite = fav;
   }
 
   get path(){

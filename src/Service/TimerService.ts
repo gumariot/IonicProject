@@ -4,13 +4,14 @@ import { Injectable } from '@angular/core';
 export class TimerService {
   private _minutes: number = 0;
   private _secondes: number = 0;
-  private _totalSecondes: number = 3560;
+  private _totalSecondes: number = 0;
   private _heures: number = 0;
   private _timer;
 
   private _play: boolean = true;
   private _stop: boolean = false;
   private _backward: boolean = false;
+  private _btnPlay: string = 'Start';
 
   get minutes(): number { return this._minutes; }
   get secondes(): number { return this._secondes; }
@@ -18,6 +19,7 @@ export class TimerService {
   get stop(): boolean { return this._stop; }
   get backward(): boolean { return this._backward; }
   get play(): boolean { return this._play; }
+  get btnPlay(): String { return this._btnPlay; }
 
   startTimer() {
     this._timer = setInterval(() => {
@@ -39,6 +41,7 @@ export class TimerService {
   setPlay() {
     this._stop = true;
     this._play = this._backward = false;
+    this._btnPlay = 'Continue';
   }
   setStop() {
     this._stop = false;
@@ -47,5 +50,22 @@ export class TimerService {
   setBackward() {
     this._play = true;
     this._stop = this._backward = false;
+    this._btnPlay = 'Start';
+  }
+
+  itemTappedBtn(event, item) {
+    this.startTimer();
+    this.setPlay();
+  }
+
+  itemTappedStop(event, item) {
+    this.stopTimer();
+    this.setStop();
+  }
+
+  itemTappedReset(event, item) {
+    this.resetTimer();
+    this.stopTimer();
+    this.setBackward();
   }
 }

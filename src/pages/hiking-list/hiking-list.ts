@@ -4,6 +4,7 @@ import { Hike } from '../../Model/Hike';
 import { Step } from '../../Model/Step';
 import { HikeDetailPage } from '../hike-detail/hike-detail';
 import { OpenDataService } from '../../Service/OpenDataService';
+import { TimerService } from '../../Service/TimerService';
 
 @Component({
   selector: 'hiking-list',
@@ -11,9 +12,11 @@ import { OpenDataService } from '../../Service/OpenDataService';
 })
 export class ListHiking {
   private _hikes: Array<Hike>;
+  private _timerService: TimerService;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public openDataService: OpenDataService ) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public openDataService: OpenDataService, public timerService: TimerService) {
     this._hikes = openDataService.importedHikes;
+    this._timerService = timerService;
   }
 
   get hikes(){
@@ -26,4 +29,11 @@ export class ListHiking {
     });
   }
 
+  itemTappedFav(event, item) {
+    if(item.favorite){
+      item.favorite = false;
+    }else{
+      item.favorite = true;
+    }
+  }
 }

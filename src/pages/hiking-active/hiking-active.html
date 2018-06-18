@@ -3,55 +3,10 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Hike in progress:</ion-title>
+    <ion-title>Trail in progress:</ion-title>
   </ion-navbar>
 </ion-header>
-//TODO CARD
 <ion-content *ngIf="_hike">
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <img src="assets/imgs/1.jpg">
-      </ion-col>
-      <ion-col>
-        <ion-row>
-          <ion-col>
-            <div class="item-note">{{_hike._name}}</div>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <div class="item-note">{{_hike.formatedLength}}</div>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <div class="item-note">{{_hike.incline}}</div>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <div class="item-note">{{_hike.difficulty}}</div>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <div class="item-note">{{_hike.duration}}</div>
-          </ion-col>
-        </ion-row>
-      </ion-col>
-      <ion-col>
-        <ion-row>
-          <ion-col>
-            <button ion-button icon-right (click)="itemDeactivate($event)">
-              De-activate
-              <ion-icon name="add-circle"></ion-icon>
-            </button>
-          </ion-col>
-        </ion-row>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
   <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" mapTypeId="terrain">
     <agm-marker [latitude]="lat" [longitude]="lng">
       <agm-info-window [latitude]="lat" [longitude]="lng">Current Position</agm-info-window>
@@ -67,7 +22,69 @@
         <agm-polyline-point [latitude]="item.lat" [longitude]="item.lng">
         </agm-polyline-point>
       </ng-container>
-  </agm-polyline>
-
+    </agm-polyline>
   </agm-map>
+
+  <div class="title_detail">
+    <span>{{_hike._name}}</span><br/>
+    <ion-icon class="star" *ngFor="let count of _hike.mark" name="star" item-end small></ion-icon>
+  </div>
+  <ion-grid class="grid">
+    <ion-row>
+      <ion-col col-2>
+        <ion-icon name="map"></ion-icon>
+      </ion-col>
+      <ion-col col-10>
+        <div class="item-note">{{_hike.length}}</div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-2>
+        <ion-icon name="timer"></ion-icon>
+      </ion-col>
+      <ion-col col-10>
+        <div class="item-note">{{_hike.duration}}</div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-2>
+        <ion-icon ios="ios-trending-up" md="md-trending-up"></ion-icon>
+      </ion-col>
+      <ion-col col-10>
+        <div class="item-note">{{_hike.incline}}</div>
+      </ion-col>
+    </ion-row>
+
+    <div class="start">
+      <button ion-button icon-right (click)="_timerService.itemTappedBtn($event, item)" small class="btn" *ngIf="_timerService.play">
+        {{_timerService.btnPlay}}
+      </button>
+      <button ion-button icon-right small class="btn" *ngIf="_timerService.stop" (click)="_timerService.itemTappedStop($event, item)">Stop</button>
+    </div>
+  </ion-grid>
+
+  <div class="title_step">
+    <span>Steps</span>
+  </div>
+
+  <div class="step_detail">
+    <ion-grid class="step-grid" *ngFor="let item of _hike.stepCheckpoint">
+      <ion-row>
+        <ion-col col-10>{{item.name}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-10>{{item.desc}}</ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class="start">
+    <button ion-button icon-right small class="finish" (click)="_timerService.itemTappedReset($event, item)">Finish</button>
+  </div>
+
 </ion-content>
+<ion-footer *ngIf="_timerService.secondes">
+  <ion-toolbar>
+  <chronometre></chronometre>
+  </ion-toolbar>
+</ion-footer>

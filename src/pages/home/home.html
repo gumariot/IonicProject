@@ -8,8 +8,43 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content class="card-background-page">
+  <ion-card class="home">
+    <img src="assets/imgs/main.png"/>
+    <div class="card-title-main">RandoVergne</div>
+  </ion-card>
+  <div class="desc_home">
+    <p>Discover the region through many trails. From typical village lost in the campaign to the best city in the World Clermont-Ferrand</p>
+  </div>
 
-  <h3>Welcome to RandoVergne</h3>
-
+  <ng-container *ngFor="let item of hikes">
+    <ion-card *ngIf="item.favorite">
+      <img src={{item.path}}/>
+      <ion-card-content class="card">
+        <ion-card-title class="title_trail">{{item._name}}</ion-card-title>
+        <div class="card-title adr_trail">{{item._adr}}</div>
+        <p class="description_trail">{{item._description}}</p>
+        <ion-row>
+          <ion-col>
+            <button ion-button icon-start clear small class="btn_trail">
+              <ion-icon name="timer"></ion-icon>
+              <div>{{item.duration}}</div>
+            </button>
+          </ion-col>
+          <ion-col>
+              <button ion-button icon-start clear small class="btn_trail">
+                <ion-icon name="walk"></ion-icon>
+                <div>{{item.length}}</div>
+              </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button icon-start clear small class="btn_trail">
+              <ion-icon class="star" name="star"></ion-icon>
+              <div class="star">Favorite</div>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
 </ion-content>
