@@ -9,22 +9,23 @@ Projet Ionic a partir du template tutorial créer par Florent DAMIENS Et Guillau
 
 #Travail effectué
 Liste de fonctionnalitées présentent :
-Markup :  - [x] Une application qui fonctionne sous android et navigateur
-          - [x] Listing des randonnées
-          - [x] Récupération des randonnées via une requête HTTP
-          - [x] Détail pour chaque randonnées consultable
-          - [x] Affichage de toutes les étapes pour les randonnées
-          - [x] Possibilité de lancer une randonnées
-          - [x] Lancement du timer lors du dépard
-          - [x] La randonnées est correctement affiché sur la carte
-          - [x] Possibilité de stoper et finir la randonnées
-          - [x] Option dans le menu pour consulté la randonnées en cour
+
+⋅⋅* Une application qui fonctionne sous android et navigateur
+⋅⋅* Listing des randonnées
+⋅⋅* Récupération des randonnées via une requête HTTP
+⋅⋅* Détail pour chaque randonnées consultable
+⋅⋅* Affichage de toutes les étapes pour les randonnées
+⋅⋅* Possibilité de lancer une randonnées
+⋅⋅* Lancement du timer lors du dépard
+⋅⋅* La randonnées est correctement affiché sur la carte
+⋅⋅* Possibilité de stoper et finir la randonnées
+⋅⋅* Option dans le menu pour consulté la randonnées en cour
 
 #Ce qui reste à faire
-Markup :  - [ ] Test unitaire et fonctionnel
-          - [ ] Gestion des collisions avec les checkpoints des randonnées
-          - [ ] Implémentation du lazy loading
+⋅⋅* Test unitaire et fonctionnel
+⋅⋅* Gestion des collisions avec les checkpoints des randonnées
+⋅⋅* Implémentation du lazy loading
 
 #Bonus
-Markup :  - [x] Design en accord avec la maquette
-          - [x] Liste des randonnées favorites
+⋅⋅* Design en accord avec la maquette
+⋅⋅* Liste des randonnées favorites
