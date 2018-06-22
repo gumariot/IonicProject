@@ -22,7 +22,7 @@ Liste de fonctionnalitées présentent :
 ⋅⋅* Option dans le menu pour consulté la randonnées en cour
 
 #Ce qui reste à faire
-⋅⋅* Test unitaire et fonctionnel
+⋅⋅* Test unitaire et fonctionnel ( pb )
 ⋅⋅* Gestion des collisions avec les checkpoints des randonnées
 ⋅⋅* Implémentation du lazy loading
 
